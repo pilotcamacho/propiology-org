@@ -4,7 +4,7 @@ const PUBLIC_FILE = /\.(.*)$/;
 const SUPPORTED_LOCALES = ['en', 'es'];
 const DEFAULT_LOCALE = 'en';
 
-export function proxy(request: NextRequest) {
+export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
   // Skip middleware for static files, API routes, and Next.js internals
