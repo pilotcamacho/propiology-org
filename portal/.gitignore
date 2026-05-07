@@ -39,3 +39,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Amplify Gen 2 — generated per environment, contains real AWS resource IDs
+amplify_outputs.json

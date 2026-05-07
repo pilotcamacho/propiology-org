@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import './globals.css';
+import AmplifyProvider from '@/components/providers/AmplifyProvider';
 
 export const metadata: Metadata = {
   title: 'Propiology',
@@ -11,5 +12,5 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  return children;
+  return <AmplifyProvider>{children}</AmplifyProvider>;
 }
