@@ -1,0 +1,32 @@
+{
+  "site": {
+    "name": "Propiology",
+    "tagline": "The Study of Oneself",
+    "description": "Propiology is a comprehensive framework for self-knowledge and personal transformation."
+  },
+  "cta": {
+    "getStarted": "Get Started",
+    "learnMore": "Learn More",
+    "beginJourney": "Begin Your Journey",
+    "downloadFree": "Download Free Resource",
+    "findPractitioner": "Find a Practitioner",
+    "buyBook": "Buy the Book",
+    "subscribe": "Subscribe",
+    "submit": "Submit",
+    "cancel": "Cancel",
+    "back": "Back",
+    "next": "Next"
+  },
+  "errors": {
+    "required": "This field is required",
+    "invalidEmail": "Please enter a valid email address",
+    "generic": "Something went wrong. Please try again.",
+    "notFound": "Page not found"
+  },
+  "loading": "Loading...",
+  "success": {
+    "subscribed": "You are now subscribed!",
+    "messageSent": "Your message has been sent.",
+    "downloaded": "Your download is ready."
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "site": {
+    "name": "Propiología",
+    "tagline": "El Estudio de Uno Mismo",
+    "description": "La propiología es un marco integral para el autoconocimiento y la transformación personal."
+  },
+  "cta": {
+    "getStarted": "Comenzar",
+    "learnMore": "Saber más",
+    "beginJourney": "Inicia tu Viaje",
+    "downloadFree": "Descargar Recurso Gratuito",
+    "findPractitioner": "Encontrar un Practicante",
+    "buyBook": "Comprar el Libro",
+    "subscribe": "Suscribirse",
+    "submit": "Enviar",
+    "cancel": "Cancelar",
+    "back": "Atrás",
+    "next": "Siguiente"
+  },
+  "errors": {
+    "required": "Este campo es obligatorio",
+    "invalidEmail": "Por favor ingresa un correo electrónico válido",
+    "generic": "Algo salió mal. Por favor intenta de nuevo.",
+    "notFound": "Página no encontrada"
+  },
+  "loading": "Cargando...",
+  "success": {
+    "subscribed": "¡Ya estás suscrito!",
+    "messageSent": "Tu mensaje ha sido enviado.",
+    "downloaded": "Tu descarga está lista."
+  }
+}
