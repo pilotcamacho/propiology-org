@@ -24,9 +24,11 @@ This definition translates the educational and transformative goals of Propiolog
 *   **Frontend Styling:** Tailwind CSS (for building a clean, welcoming, and philosophical UI).
 *   **Internationalization (i18n):** next-i18next or similar i18n framework to support multiple languages. Initially Spanish and English, with architecture flexible for future language additions.
 *   **Content Management System (CMS):** A Headless CMS (e.g., Sanity, Strapi, or Headless WordPress) to separate content creation from the codebase with multi-language content support.
-*   **Database:** PostgreSQL (with an ORM like Prisma) to manage the Community Directory and user profiles.
-*   **Authentication:** NextAuth.js for secure login sessions for certified experts.
-*   **Email/CRM Integration:** HubSpot, Mailchimp, or ConvertKit API for lead generation and email captures.
+*   **Hosting & Deployment:** AWS Amplify (serverless infrastructure with CI/CD built-in, automatic deployments on code push, global CDN).
+*   **Database:** Amazon DynamoDB (NoSQL, serverless, auto-scaling) managed through AWS Amplify for storing user profiles, practitioner data, testimonials, and gated resources.
+*   **Authentication:** AWS Cognito (via AWS Amplify) for secure user authentication, including registration, login, password reset, and multi-factor authentication support. Cognito integrates natively with DynamoDB.
+*   **APIs:** AWS Amplify GraphQL or REST APIs (auto-generated from data models) for seamless frontend-backend communication. Amplify DataStore for offline-first capabilities.
+*   **Email/CRM Integration:** HubSpot, Mailchimp, or ConvertKit API for lead generation and email captures (integrated via Amplify Functions).
 
 ---
 
