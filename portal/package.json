@@ -2,6 +2,9 @@
   "name": "portal",
   "version": "0.1.0",
   "private": true,
+  "overrides": {
+    "graphql": "15.10.2"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -9,9 +12,18 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@aws-amplify/backend": "^1.22.0",
+    "@aws-amplify/backend-cli": "^1.8.2",
     "@aws-amplify/ui-react": "^6.15.3",
+    "@aws-sdk/client-amplify": "^3.750.0",
+    "@aws-sdk/client-cloudformation": "^3.750.0",
+    "@aws-sdk/client-s3": "^3.750.0",
+    "@aws-sdk/types": "^3.750.0",
     "aws-amplify": "^6.17.0",
+    "aws-cdk-lib": "^2.234.1",
     "clsx": "^2.1.1",
+    "constructs": "^10.0.0",
+    "graphql": "15.10.2",
     "i18next": "^26.0.10",
     "i18next-browser-languagedetector": "^8.2.1",
     "next": "^15.3.2",
@@ -22,6 +34,7 @@
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
+    "@types/aws-lambda": "^8",
     "@types/node": "^20.19.39",
     "@types/react": "^19",
     "@types/react-dom": "^19",

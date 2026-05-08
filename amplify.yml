@@ -7,9 +7,9 @@ applications:
           commands:
             - nvm install 20
             - nvm use 20
-            - npm config list
-            - cd amplify && npm install && export GQL_ROOT="$(pwd)/node_modules/graphql" && echo "=== graphql dirs before ===" && find node_modules -mindepth 2 -name "graphql" -type d && find node_modules -mindepth 2 -path "*/node_modules/graphql" -type d -prune | xargs -r -I{} sh -c 'rm -rf "$1" && ln -sf "$2" "$1" && echo "symlinked $1"' -- {} "$GQL_ROOT" && echo "=== graphql entries after ===" && find node_modules -mindepth 2 -name "graphql" && cd ..
-            - mkdir -p node_modules && ln -sf $PWD/amplify/node_modules/esbuild node_modules/esbuild && npm exec --prefix amplify -- ampx pipeline-deploy --branch $AWS_BRANCH --app-id $AWS_APP_ID
+            - npm install
+            - find node_modules -mindepth 2 -path "*/node_modules/graphql" -type d -prune | xargs -r -I{} sh -c 'rm -rf "$1" && ln -sf "$(pwd)/node_modules/graphql" "$1" && echo "symlinked $1"' -- {}
+            - npx ampx pipeline-deploy --branch $AWS_BRANCH --app-id $AWS_APP_ID
     frontend:
       phases:
         preBuild:
