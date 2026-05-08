@@ -23,8 +23,4 @@ applications:
         files:
           - '**/*'
       cache:
-        paths:
-          - .next/cache/**/*
-          - .npm/**/*
-          - node_modules/**/*
-          - amplify/node_modules/**/*
+        paths: []
