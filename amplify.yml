@@ -8,8 +8,7 @@ applications:
             - nvm install 20
             - nvm use 20
             - npm install
-            - rm -rf node_modules/@aws-amplify/backend-data/node_modules/@aws-amplify/data-construct/node_modules/graphql
-            - rm -rf node_modules/@aws-amplify/backend-data/node_modules/@aws-amplify/graphql-api-construct/node_modules/graphql
+            - find node_modules -mindepth 2 -name "graphql" -type d -prune | xargs -r rm -rf
             - npx ampx pipeline-deploy --branch $AWS_BRANCH --app-id $AWS_APP_ID
     frontend:
       phases:
