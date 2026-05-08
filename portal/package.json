@@ -20,18 +20,7 @@
     "react-i18next": "^17.0.7",
     "tailwind-merge": "^3.5.0"
   },
-  "overrides": {
-    "graphql": "15.10.2"
-  },
   "devDependencies": {
-    "@aws-amplify/backend": "^1.22.0",
-    "@aws-amplify/backend-cli": "^1.8.2",
-    "@aws-sdk/client-amplify": "^3.750.0",
-    "@aws-sdk/client-cloudformation": "^3.750.0",
-    "@aws-sdk/client-s3": "^3.750.0",
-    "@aws-sdk/types": "^3.750.0",
-    "aws-cdk-lib": "^2.234.1",
-    "constructs": "^10.0.0",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20.19.39",
     "@types/react": "^19",
