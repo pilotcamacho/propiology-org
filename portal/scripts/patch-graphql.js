@@ -1,32 +1,36 @@
 /**
- * Replaces bundled graphql@15.10.1 copies inside @aws-amplify packages with
- * symlinks to the root graphql install. Without this, the CDK synthesis step
- * in `ampx pipeline-deploy` throws "Cannot use GraphQLSchema from another
- * module or realm" because @aws-amplify/data-construct and
- * @aws-amplify/graphql-api-construct both declare graphql in bundledDependencies,
- * making npm overrides ineffective.
+ * Removes bundled graphql@15.10.1 copies from @aws-amplify packages.
+ *
+ * @aws-amplify/data-construct and @aws-amplify/graphql-api-construct both list
+ * 'graphql' in their bundledDependencies, shipping a separate graphql@15.10.1
+ * inside their tarballs. npm overrides cannot affect bundledDependencies.
+ *
+ * By deleting those directories (not symlinking — to avoid --preserve-symlinks
+ * issues in Amplify CI), Node.js CJS resolution falls back up the tree to the
+ * single root graphql install, ensuring one GraphQLSchema class throughout
+ * the CDK synthesis that runs during `ampx pipeline-deploy`.
  */
 const fs = require('fs');
 const path = require('path');
 
-const root = path.resolve(__dirname, '..', 'node_modules', 'graphql');
+const root = path.resolve(__dirname, '..', 'node_modules');
 
-if (!fs.existsSync(root)) {
-  process.exit(0);
-}
-
-const nested = [
-  path.resolve(__dirname, '..', 'node_modules', '@aws-amplify', 'data-construct', 'node_modules', 'graphql'),
-  path.resolve(__dirname, '..', 'node_modules', '@aws-amplify', 'graphql-api-construct', 'node_modules', 'graphql'),
+const bundledCopies = [
+  path.join(root, '@aws-amplify', 'data-construct', 'node_modules', 'graphql'),
+  path.join(root, '@aws-amplify', 'graphql-api-construct', 'node_modules', 'graphql'),
 ];
 
-for (const target of nested) {
+for (const target of bundledCopies) {
   try {
     if (!fs.existsSync(target)) continue;
-    if (fs.lstatSync(target).isSymbolicLink()) continue;
-    fs.rmSync(target, { recursive: true, force: true });
-    fs.symlinkSync(root, target, 'junction');
-    console.log('graphql patch:', path.relative(path.resolve(__dirname, '..'), target), '->', 'node_modules/graphql');
+    const stat = fs.lstatSync(target);
+    if (stat.isSymbolicLink()) {
+      fs.unlinkSync(target);
+      console.log('graphql patch (removed symlink):', path.relative(root, target));
+    } else {
+      fs.rmSync(target, { recursive: true, force: true });
+      console.log('graphql patch (removed dir):', path.relative(root, target));
+    }
   } catch (e) {
     console.warn('graphql patch skipped for', target, ':', e.message);
   }
