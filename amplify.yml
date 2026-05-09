@@ -8,7 +8,6 @@ applications:
             - nvm install 20
             - nvm use 20
             - npm install
-            - find node_modules -mindepth 2 -path "*/node_modules/graphql" -type d -prune | xargs -r -I{} sh -c 'rm -rf "$1" && ln -sf "$(pwd)/node_modules/graphql" "$1" && echo "symlinked $1"' -- {}
             - npx ampx pipeline-deploy --branch $AWS_BRANCH --app-id $AWS_APP_ID
     frontend:
       phases:
